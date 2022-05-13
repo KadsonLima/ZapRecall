@@ -10,13 +10,10 @@ function App(){
 
     const [init, setInit] = react.useState(0);
 
-    function trocaTela(){
-        setInit(init+ 1);
-    }
 
-    return (<>  
-                {init === 0?<Inicio init={init} set={trocaTela}/>: <Play />}
-                
+    return (
+        <>  
+        {init === 0?<Inicio init={init} set={()=>{setInit(init + 1)}}/>: <Play deck={deck} />}       
                 
         </>)
 }
