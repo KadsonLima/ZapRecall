@@ -56,10 +56,37 @@
     padding: 15px;
     margin-bottom: 25px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
 }
 
 .questOpen img{
     position: absolute;
     right: 10px;
     bottom: 6px;
+    cursor: pointer;
+}
+
+.choice{
+    width: 85px;
+    height: 37px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.vermelho{
+    background-color: #FF3030;
+}
+.verde{
+    background-color: #2FBE34;
+}
+.amarelo{
+    background-color: #FF922E;
 }
