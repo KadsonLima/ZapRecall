@@ -1,21 +1,20 @@
 import reactDom from "react-dom";
-import react from "react";
-import Inicio from "./assets/Components/inicio/inicio.js";
-import Play from "./assets/Components/play/play";
+import Inicio from "./Components/inicio/inicio.js";
+import Play from "./Components/play/play.js";
 import "./assets/css/reset.css";
 import "./assets/css/styles.css";
-import deck from "./deck/deck"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App(){
 
-    const [init, setInit] = react.useState(0);
-
-
     return (
-        <>  
-        {init === 0?<Inicio init={init} set={()=>{setInit(init + 1)}}/>: <Play deck={deck} />}       
-                
-        </>)
+        <BrowserRouter>
+            <Routes >
+                <Route path="/" element={<Inicio></Inicio>} /> 
+                <Route  path="/play" element={<Play></Play>} /> 
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
 

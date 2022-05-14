@@ -1,6 +1,6 @@
-import logo from '../../img/logo.png';
+import logo from '../../assets/img/logo.png';
 import './styles.css';
-
+import {Link } from 'react-router-dom'
 
 function Welcome(props){
 
@@ -9,7 +9,9 @@ function Welcome(props){
         <div className="screen-start">
             <img src={logo} alt={logo} width="136px" height="161px"></img>
             <h3>ZapRecall</h3>
-            <button onClick={props.set}>Iniciar Recall! </button>
+            <Link to="/play">
+            <button>Iniciar Recall! </button>
+            </Link>
         </div>
         
         
