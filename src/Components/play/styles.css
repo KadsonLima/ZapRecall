@@ -3,7 +3,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 130px;
+}
+.box{
+    display: flex;
 }
 .top{
     display: flex;
@@ -39,12 +42,16 @@
     bottom: 0;
     background-color: white;
     width: 100%;
-    height: 70px;
+    padding: 14px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     font-family: 'Recursive';
+}
+.footer div,.footer h3,.footer span{
+    margin-bottom: 5px;
 }
 .questOpen{
     width: 300px;
@@ -89,4 +96,30 @@
 }
 .amarelo{
     background-color: #FF922E;
+}
+
+.etapa4{
+    cursor:auto;
+}
+.etapa4 span{
+    text-decoration: line-through;
+}
+
+.yellow{
+    color: #FF922E;
+}
+
+.green{
+    color: #2FBE34;
+}
+
+.red, ion-icon .green{
+    color: #FF3030;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+ion-icon .yellow{
+    color: #FF3030;
 }

@@ -1,55 +1,65 @@
 import seta from '../../assets/img/setinha.png';
 import './styles.css';
 import react from 'react';
-import Choices from './choices';
-import styled from 'styled-components';
 
-function Answer(props) {
-    return (
-        <>
-            {props.children}
-        </>
-    )
-}
+function Cards({ deck, index ,func , ini }) {
 
-function Cards({ e, index }) {
+    const [clicked, setClicked] = react.useState(1);
+    function aplicarSet(x){
+        setClicked(clicked+x)
+        console.log(x)
+        if(clicked === 3){
+        
+            func({quant:ini.quant+1, win:ini.win = [...ini.win, x]})
+            console.log(ini.win)
+        }
 
-    const [clicked, setClicked] = react.useState(true);
-    const [virar, setVirar] = react.useState(true);
+    }
 
+    if (clicked === 1) {
+        return (<div className='card' onClick={() => { setClicked(clicked + 1)}}>
+            <span>Pergunta {index + 1}</span>
+            <ion-icon name="chevron-forward-outline" size="large"></ion-icon>
+        </div>)
+    }
+    if (clicked === 2) {
+        return (<div className='questOpen' >
+            <div >{deck['quest']}</div>
+            <img src={seta} alt={seta} onClick={() => { setClicked(clicked + 1)}}></img>
+        </div>)
+    }
+    if (clicked === 3) {
 
-    const Flex = styled.div`
-    display:flex;
-    justify-content: space-between;
-    `
-
-
-
-    return (
-        (clicked ) ?
-            (<div className='card' onClick={() => { setClicked(!clicked) }}>
-                <span>Pergunta {index + 1}</span>
-                <ion-icon name="chevron-forward-outline" size="large"></ion-icon>
-            </div>)
-            :
-            (virar) ?
-                (<div className='questOpen' >
-                    <div>{e['quest']}</div>
-                    <img src={seta} alt={seta} onClick={() => setVirar(!virar)}></img>
-                </div>)
-                :
-                (<div className='questOpen'>
-                    <div >{e['answer']}</div>
-                    <Answer>
-                        <Flex>
-                            <Choices classe="vermelho" texto="Não lembrei"  set={setClicked} choice={clicked} valor={3}/>
-                            <Choices classe="amarelo" texto="Quase não lembrei" set={setClicked} choice={clicked} valor={2}/> 
-                            <Choices classe="verde" texto="Lembrei" set={setClicked} choice={clicked} valor={1}/>
-                        </Flex>
-                    </Answer>
+        return (<div className='questOpen'>
+            <div >{deck['answer']}</div>
+            <div className='flex'>
+                    <div  className="choice vermelho" onClick={()=>aplicarSet(1)}>Não lembrei</div>
+                    <div className="choice amarelo" onClick={()=>aplicarSet(2)}>Quase não lembrei</div>
+                    <div className="choice verde" onClick={()=>aplicarSet(3)}>Lembrei</div>
                 </div>
-                )
-    )
+        </div>)
+    }if(clicked === 4){
+
+        return (<div className='card etapa4 red' > 
+            <span>Pergunta {index + 1}</span>
+            <ion-icon name="close-circle" size="large"></ion-icon>
+        </div>)
+    }if(clicked === 5){
+        return (<div className='card etapa4 yellow' > 
+        <span>Pergunta {index + 1}</span>
+        <ion-icon name="help-circle" size="large"></ion-icon>
+    </div>)
+    }if(clicked === 6){
+        return (<div className='card etapa4 green' > 
+        <span>Pergunta {index + 1}</span>
+        <ion-icon name="checkmark-circle" size="large"></ion-icon>
+    </div>)
+    }
+    
+
+
+
+
 
 }
 
