@@ -1,13 +1,13 @@
 import seta from '../../assets/img/setinha.png';
 import './styles.css';
 import react from 'react';
-
 function Cards({ deck, index ,func , ini }) {
 
     const [clicked, setClicked] = react.useState(1);
     function aplicarSet(x){
+
+        console.log(ini.reiniciar)
         setClicked(clicked+x)
-        console.log(x)
         if(clicked === 3){
         
             func({quant:ini.quant+1, win:ini.win = [...ini.win, x]})
@@ -16,7 +16,7 @@ function Cards({ deck, index ,func , ini }) {
 
     }
 
-    if (clicked === 1) {
+    if (clicked === 1 ) {
         return (<div className='card' onClick={() => { setClicked(clicked + 1)}}>
             <span>Pergunta {index + 1}</span>
             <ion-icon name="chevron-forward-outline" size="large"></ion-icon>

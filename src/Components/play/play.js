@@ -5,11 +5,13 @@ import Card from "./cards"
 import react from 'react';
 import Good from '../../assets/img/party.png'
 import Sad from '../../assets/img/sad.png'
+import {Link} from 'react-router-dom';
+
 
 function Deck() {
 
     const quest = deck;
-    const [questEnd, setQuest] = react.useState({ quant: 0, win:[]})
+    const [questEnd, setQuest] = react.useState({ quant: 0, win:[]} )
 
 
     
@@ -31,8 +33,12 @@ function Deck() {
     const footer = (questEnd.quant === quest.length) ?
         (<div className='footer'>
             {fim}
+            
             <div>{questEnd.quant}/{quest.length} CONCLUÍDOS</div>
             <div className='box'>{terminadas}</div>
+            <Link to={"/"} style={{ textDecoration: 'none' }}>
+            <div className='reiniciar'> Reiniciar !!</div>
+            </Link>
         </div>)
         :
         (<div className='footer'>
